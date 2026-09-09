@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Mafimisebi Favour Monenoye — Frontend Developer building modern, responsive and user-focused websites.">
+
+    <meta name="author" content="Mafimisebi Favour Monenoye">
+
+    <title>Mafimisebi Favour Monenoye | Frontend Developer</title>
+
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='25' fill='%2359A94F'/%3E%3Ctext x='50' y='67' font-size='55' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EF%3C/text%3E%3C/svg%3E">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: {
+
+                        inter: ["Inter", "sans-serif"]
+
+                    },
+
+                    colors: {
+
+                        primary: "#59A94F"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            overflow-x: hidden;
+        }
+
+
+        .reveal {
+
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+
+        }
+
+
+        .reveal.active {
+
+            opacity: 1;
+
+            transform: translateY(0);
+
+        }
+
+
+        .nav-link.active {
+
+            color: #59A94F;
+
+        }
+
+
+        .project-card:hover .project-number {
+
+            transform: translateX(8px);
+
+        }
+
+
+        .project-card:hover .project-arrow {
+
+            transform: translate(5px, -5px);
+
+        }
+
+
+        .gradient-text {
+
+            background: linear-gradient(90deg,
+                    #171717,
+                    #59A94F);
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color: transparent;
+
+        }
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+
+                transform: translateY(0);
+
+            }
+
+            50% {
+
+                transform: translateY(-12px);
+
+            }
+
+        }
+
+
+        .floating {
+
+            animation: float 4s ease-in-out infinite;
+
+        }
+    </style>
+
+</head>
+
+
+<body class="bg-[#f7f7f5] text-[#171717] font-inter">
+
+
+    <!-- navbar -->
+    <header class="fixed top-0 left-0 z-50 w-full bg-[#f7f7f5]/90 backdrop-blur-xl border-b border-black/5">
+
+        <nav class="w-[90%] max-w-7xl mx-auto h-[72px] flex items-center justify-between">
+
+
+            <!-- LOGO -->
+
+            <a href="#home" class="text-2xl font-black tracking-tight cursor-pointer">
+
+                Favour<span class="text-primary">.</span>
+
+            </a>
+
+
+            <!-- DESKTOP NAV -->
+
+            <div class="hidden md:flex items-center gap-8">
+
+                <a href="#home"
+                    class="nav-link active text-sm font-semibold text-gray-500 hover:text-primary transition duration-300 cursor-pointer">
+                    Home
+                </a>
+
+                <a href="#about"
+                    class="nav-link text-sm font-semibold text-gray-500 hover:text-primary transition duration-300 cursor-pointer">
+                    About
+                </a>
+
+                <a href="#skills"
+                    class="nav-link text-sm font-semibold text-gray-500 hover:text-primary transition duration-300 cursor-pointer">
+                    Skills
+                </a>
+
+                <a href="#projects"
+                    class="nav-link text-sm font-semibold text-gray-500 hover:text-primary transition duration-300 cursor-pointer">
+                    Projects
+                </a>
+
+                <a href="#services"
+                    class="nav-link text-sm font-semibold text-gray-500 hover:text-primary transition duration-300 cursor-pointer">
+                    Services
+                </a>
+
+                <a href="#contact"
+                    class="nav-link text-sm font-semibold text-gray-500 hover:text-primary transition duration-300 cursor-pointer">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <!-- NAV CTA -->
+
+            <a href="#contact"
+                class="hidden md:flex items-center gap-2 bg-[#171717] text-white px-5 py-3 rounded-full text-sm font-bold hover:bg-primary transition duration-500 cursor-pointer">
+
+                Let's Talk
+
+                <span>↗</span>
+
+            </a>
+
+
+            <!-- MOBILE MENU BUTTON -->
+
+            <button id="menuButton" aria-label="Open navigation menu"
+                class="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer">
+
+                <span class="menu-line w-6 h-0.5 bg-[#171717] transition duration-300"></span>
+
+                <span class="menu-line w-6 h-0.5 bg-[#171717] transition duration-300"></span>
+
+                <span class="menu-line w-6 h-0.5 bg-[#171717] transition duration-300"></span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- MOBILE MENU -->
+
+        <div id="mobileMenu"
+            class="md:hidden fixed top-[72px] left-0 w-full bg-[#f7f7f5] border-b border-black/5 shadow-xl -translate-y-[150%] transition-transform duration-500 ease-in-out">
+
+            <div class="w-[90%] mx-auto py-7 flex flex-col gap-5">
+
+                <a href="#home"
+                    class="mobile-link font-semibold text-gray-600 hover:text-primary transition cursor-pointer">
+                    Home
+                </a>
+
+                <a href="#about"
+                    class="mobile-link font-semibold text-gray-600 hover:text-primary transition cursor-pointer">
+                    About
+                </a>
+
+                <a href="#skills"
+                    class="mobile-link font-semibold text-gray-600 hover:text-primary transition cursor-pointer">
+                    Skills
+                </a>
+
+                <a href="#projects"
+                    class="mobile-link font-semibold text-gray-600 hover:text-primary transition cursor-pointer">
+                    Projects
+                </a>
+
+                <a href="#services"
+                    class="mobile-link font-semibold text-gray-600 hover:text-primary transition cursor-pointer">
+                    Services
+                </a>
+
+                <a href="#contact"
+                    class="mobile-link font-semibold text-gray-600 hover:text-primary transition cursor-pointer">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- heropage -->
+
+    <section id="home" class="min-h-screen pt-28 flex items-center">
+
+        <div class="w-[90%] max-w-7xl mx-auto">
+
+            <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+
+                <!-- HERO TEXT -->
+
+                <div class="reveal active">
+
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-bold">
+
+                        <span class="w-2 h-2 rounded-full bg-primary animate-pulse">
+                        </span>
+
+                        Available for opportunities
+
+                    </div>
+
+
+                    <p class="mt-8 text-gray-500 text-lg">
+                        Hello, I'm
+                    </p>
+
+
+                    <h1 class="mt-2 text-5xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[0.95]">
+
+                        Mafimisebi
+
+                        <span class="text-primary">
+                            Favour
+                        </span>
+
+                    </h1>
+
+
+                    <h2 class="mt-7 text-2xl md:text-3xl font-bold text-gray-700">
+
+                        Frontend Developer
+
+                    </h2>
+
+
+                    <p class="mt-6 max-w-xl text-gray-500 text-base md:text-lg leading-8">
+
+                        I build clean, responsive and user-focused websites
+                        that turn ideas into engaging digital experiences.
+
+                    </p>
+
+
+                    <!-- HERO BUTTONS -->
+
+                    <div class="mt-9 flex flex-wrap gap-4">
+
+                        <a href="#projects"
+                            class="group flex items-center gap-3 bg-[#171717] text-white px-6 py-4 rounded-full font-bold hover:bg-primary transition duration-500 cursor-pointer">
+
+                            View My Work
+
+                            <span class="group-hover:translate-x-1 transition duration-300">
+
+                                →
+
+                            </span>
+
+                        </a>
+
+
+                        <a href="#contact"
+                            class="flex items-center gap-3 border border-black/15 px-6 py-4 rounded-full font-bold hover:bg-[#171717] hover:text-white transition duration-500 cursor-pointer">
+
+                            Let's Work Together
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- STATS -->
+
+                    <div class="mt-12 flex flex-wrap gap-10">
+
+                        <div>
+
+                            <p class="text-3xl font-black">
+                                3+
+                            </p>
+
+                            <p class="text-sm text-gray-500">
+                                Featured Projects
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="text-3xl font-black">
+                                100%
+                            </p>
+
+                            <p class="text-sm text-gray-500">
+                                Responsive Focus
+                            </p>
+
+                        </div>
+
+
+                        <div>
+
+                            <p class="text-3xl font-black">
+                                ∞
+                            </p>
+
+                            <p class="text-sm text-gray-500">
+                                Learning
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="hidden lg:flex justify-center items-center reveal">
+
+                    <div class="relative w-[420px] h-[420px] floating">
+
+
+                        <div class="absolute inset-0 rounded-[40%_60%_60%_40%/45%_40%_60%_55%] bg-primary/10">
+                        </div>
+
+
+                        <div class="absolute inset-10 rounded-[60%_40%_40%_60%/40%_60%_40%_60%] bg-primary">
+                        </div>
+
+
+                        <div
+                            class="absolute inset-20 bg-[#171717] rounded-[30px] flex flex-col items-center justify-center text-white shadow-2xl">
+
+                            <span class="text-7xl font-black text-primary">
+
+                                &lt;/&gt;
+
+                            </span>
+
+
+                            <p class="mt-6 text-xl font-bold">
+                                Build.
+                            </p>
+
+                            <p class="text-xl font-bold text-primary">
+                                Create.
+                            </p>
+
+                            <p class="text-xl font-bold">
+                                Improve.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- about -->
+
+
+    <section id="about" class="py-24 md:py-32 bg-white">
+
+        <div class="w-[90%] max-w-7xl mx-auto reveal">
+
+            <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+
+                <div>
+
+                    <p class="text-primary font-bold uppercase tracking-[0.2em] text-sm">
+
+                        About Me
+
+                    </p>
+
+
+                    <h2 class="mt-5 text-4xl md:text-5xl font-black leading-tight">
+
+                        Turning ideas into
+
+                        <span class="text-primary">
+                            digital experiences.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <div>
+
+                    <p class="text-gray-600 text-lg leading-8">
+
+                        I'm a frontend developer passionate about building
+                        clean, responsive, and user-friendly websites. I enjoy
+                        turning ideas and designs into functional digital
+                        experiences using HTML, CSS, JavaScript, and Tailwind CSS.
+
+                    </p>
+
+
+                    <p class="mt-6 text-gray-600 text-lg leading-8">
+
+                        I focus on creating websites that look great across
+                        different screen sizes while maintaining smooth
+                        interactions, clear layouts, and a good user experience.
+                        I'm constantly improving my skills and exploring better
+                        ways to build modern web experiences.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- skills -->
+
+
+    <section id="skills" class="py-24 md:py-32">
+
+        <div class="w-[90%] max-w-7xl mx-auto reveal">
+
+
+            <div class="max-w-2xl">
+
+                <p class="text-primary font-bold uppercase tracking-[0.2em] text-sm">
+
+                    My Skills
+
+                </p>
+
+
+                <h2 class="mt-5 text-4xl md:text-5xl font-black">
+
+                    My frontend
+                    <span class="text-primary">
+                        toolkit.
+                    </span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="mt-14 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+
+
+                <!-- HTML -->
+
+                <div
+                    class="bg-white border border-black/5 rounded-3xl p-7 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <p class="text-3xl font-black">
+                        HTML
+                    </p>
+
+                    <p class="mt-3 text-sm text-gray-500">
+                        Structure
+                    </p>
+
+                </div>
+
+
+                <!-- CSS -->
+
+                <div
+                    class="bg-white border border-black/5 rounded-3xl p-7 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <p class="text-3xl font-black">
+                        CSS
+                    </p>
+
+                    <p class="mt-3 text-sm text-gray-500">
+                        Styling
+                    </p>
+
+                </div>
+
+
+                <!-- JS -->
+
+                <div
+                    class="bg-white border border-black/5 rounded-3xl p-7 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <p class="text-3xl font-black">
+                        JS
+                    </p>
+
+                    <p class="mt-3 text-sm text-gray-500">
+                        Interactions
+                    </p>
+
+                </div>
+
+
+                <!-- TAILWIND -->
+
+                <div
+                    class="bg-white border border-black/5 rounded-3xl p-7 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <p class="text-2xl font-black">
+                        Tailwind
+                    </p>
+
+                    <p class="mt-3 text-sm text-gray-500">
+                        UI Design
+                    </p>
+
+                </div>
+
+
+                <!-- GIT -->
+
+                <div
+                    class="bg-white border border-black/5 rounded-3xl p-7 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <p class="text-3xl font-black">
+                        Git
+                    </p>
+
+                    <p class="mt-3 text-sm text-gray-500">
+                        Version Control
+                    </p>
+
+                </div>
+
+
+                <!-- GITHUB -->
+
+                <div
+                    class="bg-white border border-black/5 rounded-3xl p-7 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <p class="text-2xl font-black">
+                        GitHub
+                    </p>
+
+                    <p class="mt-3 text-sm text-gray-500">
+                        Collaboration
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- projects -->
+
+
+    <section id="projects" class="py-24 md:py-32 bg-[#171717] text-white">
+
+        <div class="w-[90%] max-w-7xl mx-auto reveal">
+
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+
+
+                <div>
+
+                    <p class="text-primary font-bold uppercase tracking-[0.2em] text-sm">
+
+                        Selected Work
+
+                    </p>
+
+
+                    <h2 class="mt-5 text-4xl md:text-5xl font-black">
+
+                        Projects I'm
+
+                        <span class="text-primary">
+                            proud of.
+                        </span>
+
+                    </h2>
+
+                </div>
+
+
+                <p class="max-w-md text-gray-400 leading-7">
+
+                    A selection of projects I've designed and developed
+                    while growing my frontend development skills.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- PROJECT 1 -->
+
+            <article class="project-card mt-16 grid lg:grid-cols-2 gap-10 items-center">
+
+
+                <!-- PROJECT PREVIEW -->
+
+                <div
+                    class="relative overflow-hidden rounded-[30px] bg-[#242424] min-h-[360px] flex items-center justify-center border border-white/5">
+
+
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent">
+                    </div>
+
+
+                    <div class="relative text-center px-8">
+
+                        <p
+                            class="project-number text-primary text-sm font-bold tracking-[0.3em] transition duration-500">
+
+                            01
+
+                        </p>
+
+
+                        <h3 class="mt-5 text-4xl md:text-5xl font-black">
+
+                            TheClassRoom
+
+                        </h3>
+
+
+                        <p class="mt-4 text-gray-400">
+                            Online Education Platform
+                        </p>
+
+
+                        <div class="mt-7 flex flex-wrap justify-center gap-2">
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                HTML
+                            </span>
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                Tailwind CSS
+                            </span>
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                JavaScript
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="absolute top-6 right-6 text-5xl text-primary/20 font-black">
+
+                        &lt;/&gt;
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- PROJECT INFO -->
+
+                <div>
+
+                    <p class="text-primary font-bold">
+                        Education / EdTech
+                    </p>
+
+
+                    <h3 class="mt-4 text-3xl md:text-4xl font-black">
+
+                        A complete learning experience.
+
+                    </h3>
+
+
+                    <p class="mt-6 text-gray-400 leading-8">
+
+                        TheClassRoom is an online learning platform designed
+                        to connect students with tutors while providing courses,
+                        digital resources, a library, AI learning tools and a
+                        student marketplace.
+
+                    </p>
+
+
+                    <a href="https://theclass-room.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="mt-8 inline-flex items-center gap-3 bg-white text-black px-6 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition duration-500 cursor-pointer">
+
+                        View Live Project
+
+                        <span class="project-arrow transition duration-300">
+
+                            ↗
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <article class="project-card mt-24 grid lg:grid-cols-2 gap-10 items-center">
+
+
+                <!-- PROJECT PREVIEW -->
+
+                <div
+                    class="lg:order-2 relative overflow-hidden rounded-[30px] bg-[#242424] min-h-[360px] flex items-center justify-center border border-white/5">
+
+
+                    <div class="absolute inset-0 bg-gradient-to-bl from-primary/20 via-transparent to-transparent">
+                    </div>
+
+
+                    <div class="relative text-center px-8">
+
+                        <p
+                            class="project-number text-primary text-sm font-bold tracking-[0.3em] transition duration-500">
+
+                            02
+
+                        </p>
+
+
+                        <h3 class="mt-5 text-4xl md:text-5xl font-black">
+
+                            FruitHolic
+
+                        </h3>
+
+
+                        <p class="mt-4 text-gray-400">
+                            Healthy Food E-commerce
+                        </p>
+
+
+                        <div class="mt-7 flex flex-wrap justify-center gap-2">
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                HTML
+                            </span>
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                Tailwind CSS
+                            </span>
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                JavaScript
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="absolute top-6 right-6 text-5xl text-primary/20 font-black">
+
+                        ◈
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- PROJECT INFO -->
+
+                <div class="lg:order-1">
+
+                    <p class="text-primary font-bold">
+                        E-commerce / Food
+                    </p>
+
+
+                    <h3 class="mt-4 text-3xl md:text-4xl font-black">
+
+                        Healthy products, presented beautifully.
+
+                    </h3>
+
+
+                    <p class="mt-6 text-gray-400 leading-8">
+
+                        A modern healthy-food website featuring product
+                        catalogues, best sellers, recipes, production
+                        information, partnerships and responsive navigation.
+
+                    </p>
+
+
+                    <a href="https://fruitholic-beige.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="mt-8 inline-flex items-center gap-3 bg-white text-black px-6 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition duration-500 cursor-pointer">
+
+                        View Live Project
+
+                        <span class="project-arrow transition duration-300">
+
+                            ↗
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <article class="project-card mt-24 grid lg:grid-cols-2 gap-10 items-center">
+
+
+                <!-- PROJECT PREVIEW -->
+
+                <div
+                    class="relative overflow-hidden rounded-[30px] bg-[#242424] min-h-[360px] flex items-center justify-center border border-white/5">
+
+
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-transparent">
+                    </div>
+
+
+                    <div class="relative text-center px-8">
+
+                        <p
+                            class="project-number text-primary text-sm font-bold tracking-[0.3em] transition duration-500">
+
+                            03
+
+                        </p>
+
+
+                        <h3 class="mt-5 text-4xl md:text-5xl font-black">
+
+                            Mediseba
+
+                        </h3>
+
+
+                        <p class="mt-4 text-gray-400">
+                            Healthcare Website
+                        </p>
+
+
+                        <div class="mt-7 flex flex-wrap justify-center gap-2">
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                HTML
+                            </span>
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                Tailwind CSS
+                            </span>
+
+                            <span class="px-3 py-2 rounded-full bg-white/5 text-xs">
+                                JavaScript
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <span class="absolute top-6 right-6 text-5xl text-primary/20 font-black">
+
+                        +
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- PROJECT INFO -->
+
+                <div>
+
+                    <p class="text-primary font-bold">
+                        Healthcare
+                    </p>
+
+
+                    <h3 class="mt-4 text-3xl md:text-4xl font-black">
+
+                        A clean digital experience for healthcare.
+
+                    </h3>
+
+
+                    <p class="mt-6 text-gray-400 leading-8">
+
+                        Mediseba is a healthcare-focused website created to
+                        demonstrate responsive frontend development, structured
+                        layouts, modern interfaces and interactive sections.
+
+                    </p>
+
+
+                    <a href="https://mediseba.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="mt-8 inline-flex items-center gap-3 bg-white text-black px-6 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition duration-500 cursor-pointer">
+
+                        View Live Project
+
+                        <span class="project-arrow transition duration-300">
+
+                            ↗
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- services -->
+
+
+    <section id="services" class="py-24 md:py-32 bg-white">
+
+        <div class="w-[90%] max-w-7xl mx-auto reveal">
+
+
+            <p class="text-primary font-bold uppercase tracking-[0.2em] text-sm">
+
+                What I Do
+
+            </p>
+
+
+            <h2 class="mt-5 text-4xl md:text-5xl font-black max-w-3xl">
+
+                Helping ideas become
+
+                <span class="text-primary">
+                    functional websites.
+                </span>
+
+            </h2>
+
+
+
+            <div class="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+
+                <!-- SERVICE 1 -->
+
+                <div
+                    class="group p-8 rounded-[30px] bg-[#f7f7f5] border border-black/5 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <div class="text-4xl text-primary">
+
+                        &lt;/&gt;
+
+                    </div>
+
+
+                    <h3 class="mt-7 text-xl font-black">
+
+                        Website Development
+
+                    </h3>
+
+
+                    <p class="mt-4 text-gray-500 leading-7">
+
+                        Building responsive and functional websites tailored
+                        to businesses, brands and individuals.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- SERVICE 2 -->
+
+                <div
+                    class="group p-8 rounded-[30px] bg-[#f7f7f5] border border-black/5 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <div class="text-4xl text-primary">
+
+                        ◈
+
+                    </div>
+
+
+                    <h3 class="mt-7 text-xl font-black">
+
+                        Responsive Design
+
+                    </h3>
+
+
+                    <p class="mt-4 text-gray-500 leading-7">
+
+                        Creating websites that work smoothly across mobile,
+                        tablet and desktop screens.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- SERVICE 3 -->
+
+                <div
+                    class="group p-8 rounded-[30px] bg-[#f7f7f5] border border-black/5 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <div class="text-4xl text-primary">
+
+                        ✦
+
+                    </div>
+
+
+                    <h3 class="mt-7 text-xl font-black">
+
+                        Landing Pages
+
+                    </h3>
+
+
+                    <p class="mt-4 text-gray-500 leading-7">
+
+                        Building modern landing pages that communicate your
+                        message clearly and professionally.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- SERVICE 4 -->
+
+                <div
+                    class="group p-8 rounded-[30px] bg-[#f7f7f5] border border-black/5 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <div class="text-4xl text-primary">
+
+                        ◆
+
+                    </div>
+
+
+                    <h3 class="mt-7 text-xl font-black">
+
+                        E-commerce Websites
+
+                    </h3>
+
+
+                    <p class="mt-4 text-gray-500 leading-7">
+
+                        Creating attractive product-focused interfaces for
+                        online stores and businesses.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- SERVICE 5 -->
+
+                <div
+                    class="group p-8 rounded-[30px] bg-[#f7f7f5] border border-black/5 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <div class="text-4xl text-primary">
+
+                        ↗
+
+                    </div>
+
+
+                    <h3 class="mt-7 text-xl font-black">
+
+                        Website Redesign
+
+                    </h3>
+
+
+                    <p class="mt-4 text-gray-500 leading-7">
+
+                        Improving existing websites with cleaner layouts,
+                        modern interfaces and better responsiveness.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- SERVICE 6 -->
+
+                <div
+                    class="group p-8 rounded-[30px] bg-[#f7f7f5] border border-black/5 hover:-translate-y-2 hover:shadow-xl transition duration-500 cursor-pointer">
+
+                    <div class="text-4xl text-primary">
+
+                        ◎
+
+                    </div>
+
+
+                    <h3 class="mt-7 text-xl font-black">
+
+                        Design to Code
+
+                    </h3>
+
+
+                    <p class="mt-4 text-gray-500 leading-7">
+
+                        Turning designs and concepts into responsive HTML,
+                        CSS and Tailwind interfaces.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- contact -->
+
+    <section id="contact" class="py-24 md:py-32">
+
+
+        <div class="w-[90%] max-w-5xl mx-auto reveal">
+
+
+            <div class="bg-primary rounded-[35px] px-7 py-16 md:px-16 md:py-20 text-center">
+
+
+                <p class="text-white/80 font-bold uppercase tracking-[0.2em] text-sm">
+
+                    Let's Work Together
+
+                </p>
+
+
+                <h2 class="mt-5 text-4xl md:text-6xl font-black text-white">
+
+                    Have a project in mind?
+
+                </h2>
+
+
+                <p class="mt-6 max-w-2xl mx-auto text-white/80 text-lg leading-8">
+
+                    I'm open to discussing new projects, creative ideas and
+                    opportunities to build something meaningful.
+
+                </p>
+
+
+
+                <!-- CONTACT BUTTONS -->
+
+                <div class="mt-10 flex flex-wrap justify-center gap-4">
+
+
+                    <!-- EMAIL -->
+
+                    <a href="mailto:mafixf@gmail.com"
+                        class="flex items-center gap-3 bg-white text-black px-6 py-4 rounded-full font-bold hover:bg-[#171717] hover:text-white transition duration-500 cursor-pointer">
+
+                        <span>✉</span>
+
+                        Email Me
+
+                    </a>
+
+
+
+                    <!-- WHATSAPP -->
+
+
+                    <a href="https://wa.me/2348025988591" target="_blank" rel="noopener noreferrer"
+                        class="flex items-center gap-3 bg-white text-black px-6 py-4 rounded-full font-bold hover:bg-[#171717] hover:text-white transition duration-500 cursor-pointer">
+
+                        <span>☏</span>
+
+                        WhatsApp
+
+                    </a>
+
+
+
+                    <!-- CV -->
+
+                    <a href="./cv.pdf" download
+                        class="flex items-center gap-3 border border-white/40 text-white px-6 py-4 rounded-full font-bold hover:bg-white hover:text-black transition duration-500 cursor-pointer">
+
+                        Download CV
+
+                        <span>
+                            ↓
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- EMAIL DISPLAY -->
+
+                <div class="mt-10">
+
+                    <a href="mailto:mafixf@gmail.com"
+                        class="text-white text-lg md:text-xl font-bold underline underline-offset-4 hover:text-white/70 transition cursor-pointer">
+
+                        mafixf@gmail.com
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- footer -->
+
+    <footer class="bg-[#171717] text-white py-12">
+
+
+        <div class="w-[90%] max-w-7xl mx-auto">
+
+
+            <div class="flex flex-col md:flex-row justify-between gap-10">
+
+
+                <!-- BRAND -->
+
+                <div>
+
+                    <a href="#home" class="text-2xl font-black cursor-pointer">
+
+                        Creed<span class="text-primary">.</span>
+
+                    </a>
+
+
+                    <p class="mt-4 max-w-sm text-gray-400 leading-7">
+
+                        Frontend developer building modern, responsive and
+                        user-focused web experiences.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- FOOTER LINKS -->
+
+                <div class="flex flex-wrap gap-6">
+
+
+                    <a href="#about" class="text-gray-400 hover:text-primary transition cursor-pointer">
+
+                        About
+
+                    </a>
+
+
+                    <a href="#skills" class="text-gray-400 hover:text-primary transition cursor-pointer">
+
+                        Skills
+
+                    </a>
+
+
+                    <a href="#projects" class="text-gray-400 hover:text-primary transition cursor-pointer">
+
+                        Projects
+
+                    </a>
+
+
+                    <a href="#contact" class="text-gray-400 hover:text-primary transition cursor-pointer">
+
+                        Contact
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div
+                class="mt-10 pt-7 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-500">
+
+
+                <p>
+
+                    © <span id="year"></span>
+                    Mafimisebi Favour Monenoye.
+                    All rights reserved.
+
+                </p>
+
+
+                <a href="#home" class="hover:text-primary transition cursor-pointer">
+
+                    Back to top ↑
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+
+    <script>
+
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+
+        const mobileLinks =
+            document.querySelectorAll(".mobile-link");
+
+
+        const menuLines =
+            document.querySelectorAll(".menu-line");
+
+
+        let menuOpen = false;
+
+
+
+        menuButton.addEventListener("click", () => {
+
+
+            menuOpen = !menuOpen;
+
+
+            if (menuOpen) {
+
+
+                mobileMenu.classList.remove(
+                    "-translate-y-[150%]"
+                );
+
+
+                mobileMenu.classList.add(
+                    "translate-y-0"
+                );
+
+
+                menuLines[0].classList.add(
+                    "rotate-45",
+                    "translate-y-2"
+                );
+
+
+                menuLines[1].classList.add(
+                    "opacity-0"
+                );
+
+
+                menuLines[2].classList.add(
+                    "-rotate-45",
+                    "-translate-y-2"
+                );
+
+
+            } else {
+
+
+                closeMobileMenu();
+
+            }
+
+        });
+
+
+
+        function closeMobileMenu() {
+
+
+            menuOpen = false;
+
+
+            mobileMenu.classList.remove(
+                "translate-y-0"
+            );
+
+
+            mobileMenu.classList.add(
+                "-translate-y-[150%]"
+            );
+
+
+            menuLines[0].classList.remove(
+                "rotate-45",
+                "translate-y-2"
+            );
+
+
+            menuLines[1].classList.remove(
+                "opacity-0"
+            );
+
+
+            menuLines[2].classList.remove(
+                "-rotate-45",
+                "-translate-y-2"
+            );
+
+        }
+
+
+
+        mobileLinks.forEach(link => {
+
+
+            link.addEventListener("click", () => {
+
+                closeMobileMenu();
+
+            });
+
+        });
+
+
+
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                (entries) => {
+
+
+                    entries.forEach(entry => {
+
+
+                        if (entry.isIntersecting) {
+
+
+                            entry.target.classList.add(
+                                "active"
+                            );
+
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.15
+                }
+
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+
+        const sections =
+            document.querySelectorAll("section[id]");
+
+
+        const navLinks =
+            document.querySelectorAll(".nav-link");
+
+
+        window.addEventListener("scroll", () => {
+
+
+            let currentSection = "";
+
+
+            sections.forEach(section => {
+
+
+                const sectionTop =
+                    section.offsetTop - 150;
+
+
+                const sectionHeight =
+                    section.offsetHeight;
+
+
+                if (
+                    window.scrollY >= sectionTop &&
+                    window.scrollY < sectionTop + sectionHeight
+                ) {
+
+                    currentSection =
+                        section.getAttribute("id");
+
+                }
+
+            });
+
+
+            navLinks.forEach(link => {
+
+
+                link.classList.remove("active");
+
+
+                if (
+                    link.getAttribute("href") ===
+                    `#${currentSection}`
+                ) {
+
+                    link.classList.add("active");
+
+                }
+
+            });
+
+        });
+
+
+
+
+        document
+            .querySelectorAll('a[href^="#"]')
+            .forEach(link => {
+
+
+                link.addEventListener(
+                    "click",
+                    function (event) {
+
+
+                        const targetId =
+                            this.getAttribute("href");
+
+
+                        if (targetId === "#") return;
+
+
+                        const target =
+                            document.querySelector(targetId);
+
+
+                        if (!target) return;
+
+
+                        event.preventDefault();
+
+
+                        const navbarHeight = 72;
+
+
+                        const targetPosition =
+                            target.getBoundingClientRect().top +
+                            window.scrollY -
+                            navbarHeight;
+
+
+                        window.scrollTo({
+
+                            top: targetPosition,
+
+                            behavior: "smooth"
+
+                        });
+
+                    }
+                );
+
+            });
+
+
+
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+    </script>
+
+</body>
+
+</html>
